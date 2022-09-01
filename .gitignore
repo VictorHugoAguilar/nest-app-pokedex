@@ -39,3 +39,6 @@ package-lock.json
 
 # mongo
 mongo
+
+# enviroment variable
+.env
