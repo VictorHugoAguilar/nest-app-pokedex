@@ -22,8 +22,9 @@ export class PokemonService {
     private readonly pokemonModel: Model<Pokemon>,
     private readonly configService: ConfigService,
   ) {
-    this.defaultLimit = this.configService.get<number>('default_limit');
-    this.defaultOffset = this.configService.get<number>('default_offset');
+    this.defaultLimit = this.configService.getOrThrow<number>('default_limit');
+    this.defaultOffset =
+      this.configService.getOrThrow<number>('default_offset');
   }
 
   async findAll(paginationDto: PaginationDto) {
