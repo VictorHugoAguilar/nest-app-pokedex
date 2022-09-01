@@ -16,6 +16,7 @@ export class ParseMongoIdPipe implements PipeTransform {
    */
   transform(value: any, metadata: ArgumentMetadata) {
     if (!isValidObjectId(value)) {
+      console.log(metadata);
       throw new BadRequestException(`${value} is not a valid MongoID`);
     }
     return value;
